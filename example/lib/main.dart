@@ -16,48 +16,76 @@ class _MyAppState extends State<MyApp> {
   List<StepperData> stepperData = [
     StepperData(
         title: StepperText(
-          "Order Placed",
+          "Osama Mohamed Morsy",
           textStyle: const TextStyle(
             color: Colors.grey,
           ),
         ),
-        subtitle: StepperText("Your order has been placed"),
+        subtitle: StepperText("Project Manager"),
+        secondSubtitle: StepperText("11 may 2024"),
+        isDashedBar: false,
         iconWidget: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-              color: Colors.orange,
+              color: Color(0xFF374761),
               borderRadius: BorderRadius.all(Radius.circular(30))),
         )),
     StepperData(
-        title: StepperText("Preparing"),
-        subtitle: StepperText("Your order is being prepared"),
+        title: StepperText(
+          "Osama Mohamed Morsy",
+          textStyle: const TextStyle(
+            color: Colors.grey,
+          ),
+        ),
+        subtitle: StepperText("Project Manager"),
+        secondSubtitle: StepperText("11 may 2024"),
+        isDashedBar: false,
         iconWidget: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-              color: Colors.orange,
+              color: Color(0xFF374761),
               borderRadius: BorderRadius.all(Radius.circular(30))),
           child: const Icon(Icons.check, color: Colors.white),
         )),
     StepperData(
-        title: StepperText("On the way"),
-        subtitle: StepperText(
-            "Our delivery executive is on the way to deliver your item"),
+        title: StepperText(
+          "Osama Mohamed Morsy",
+          textStyle: const TextStyle(
+            color: Colors.grey,
+          ),
+        ),
+        subtitle: StepperText("Project Manager"),
+        secondSubtitle: StepperText("11 may 2024"),
+        isDashedBar: false,
         iconWidget: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-              color: Colors.orange,
+              color: Color(0xFF374761),
               borderRadius: BorderRadius.all(Radius.circular(30))),
           child: const Icon(Icons.check, color: Colors.white),
         )),
     StepperData(
-        title: StepperText("Delivered",
-            textStyle: const TextStyle(color: Colors.grey)),
+        title: StepperText(
+          "Osama Mohamed Morsy",
+          textStyle: const TextStyle(
+            color: Colors.grey,
+          ),
+        ),
+        subtitle: StepperText("Project Manager"),
+        secondSubtitle: StepperText("11 may 2024"),
+        isDashedBar: true,
         iconWidget: Container(
           padding: const EdgeInsets.all(8),
-          decoration: const BoxDecoration(
-              color: Colors.redAccent,
-              borderRadius: BorderRadius.all(Radius.circular(30))),
-        )),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(30)),
+            border: Border.all(
+              color: Color(0xFF374761), // You can specify the color you want for the border
+              width: 2, // You can adjust the width of the border
+            ),
+          ),
+        )
+    ),
   ];
 
   @override
@@ -82,12 +110,12 @@ class _MyAppState extends State<MyApp> {
                 stepperDirection: Axis.vertical,
                 iconWidth: 40,
                 iconHeight: 40,
-                activeBarColor: Colors.orange,
+                activeBarColor: Color(0xFF374761),
                 inActiveBarColor: Colors.grey,
                 inverted: false,
-                verticalGap: 30,
+                verticalGap: 50,
                 activeIndex: 1,
-                barThickness: 4,
+                barThickness: 2,
               ),
             ),
           ],

@@ -105,19 +105,22 @@ class AnotherStepper extends StatelessWidget {
         iconWidth: iconWidth,
       );
     } else {
+      print('weeeeeeeeeee ${index + 1} - ${stepperList.length}');
       return VerticalStepperItem(
-        index: index,
-        item: stepperList[index],
-        totalLength: stepperList.length,
-        gap: verticalGap,
-        activeIndex: activeIndex,
-        isInverted: inverted,
-        inActiveBarColor: inActiveBarColor,
-        activeBarColor: activeBarColor,
-        barWidth: barThickness,
-        iconHeight: iconHeight,
-        iconWidth: iconWidth,
-      );
+          index: index,
+          item: stepperList[index],
+          nextItem: (index + 1) < stepperList.length
+              ? stepperList[index + 1]
+              : stepperList[index],
+          totalLength: stepperList.length,
+          gap: verticalGap,
+          activeIndex: activeIndex,
+          isInverted: inverted,
+          inActiveBarColor: inActiveBarColor,
+          activeBarColor: activeBarColor,
+          barWidth: barThickness,
+          iconHeight: iconHeight,
+          iconWidth: iconWidth);
     }
   }
 }

@@ -7,10 +7,20 @@ class StepperData {
   /// subtitle for the stepper
   final StepperText? subtitle;
 
+  /// subtitle for the stepper
+  final StepperText? secondSubtitle;
+
+  final bool? isDashedBar;
+
   final Widget? iconWidget;
 
   /// Use the constructor of [StepperData] to pass the data needed.
-  StepperData({this.iconWidget, this.title, this.subtitle});
+  StepperData(
+      {this.iconWidget,
+      this.title,
+      this.subtitle,
+      this.secondSubtitle,
+      this.isDashedBar});
 }
 
 class StepperText {

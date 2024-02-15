@@ -1,4 +1,5 @@
 import 'package:another_stepper/dto/stepper_data.dart';
+import 'package:another_stepper/widgets/common/dashed_bar.dart';
 import 'package:another_stepper/widgets/common/dot_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ class VerticalStepperItem extends StatelessWidget {
   const VerticalStepperItem(
       {Key? key,
       required this.item,
+      required this.nextItem,
       required this.index,
       required this.totalLength,
       required this.gap,
@@ -21,6 +23,9 @@ class VerticalStepperItem extends StatelessWidget {
 
   /// Stepper item of type [StepperData] to inflate stepper with data
   final StepperData item;
+
+  /// Stepper next item of type [StepperData] to inflate stepper with data
+  final StepperData nextItem;
 
   /// Index at which the item is present
   final int index;
@@ -63,13 +68,21 @@ class VerticalStepperItem extends StatelessWidget {
     return [
       Column(
         children: [
-          Container(
+          VerticalLine(
             color: index == 0
                 ? Colors.transparent
-                : (index <= activeIndex ? activeBarColor : inActiveBarColor),
-            width: barWidth,
+                : (index < activeIndex ? activeBarColor : inActiveBarColor),
             height: gap,
+            isDashed: item.isDashedBar ?? false,
+            thickness: barWidth,
           ),
+          // Container(
+          //   color: index == 0
+          //       ? Colors.transparent
+          //       : (index <= activeIndex ? activeBarColor : inActiveBarColor),
+          //   width: barWidth,
+          //   height: gap,
+          // ),
           DotProvider(
             activeIndex: activeIndex,
             index: index,
@@ -78,22 +91,31 @@ class VerticalStepperItem extends StatelessWidget {
             iconHeight: iconHeight,
             iconWidth: iconWidth,
           ),
-          Container(
+          VerticalLine(
             color: index == totalLength - 1
                 ? Colors.transparent
                 : (index < activeIndex ? activeBarColor : inActiveBarColor),
-            width: barWidth,
             height: gap,
+            isDashed: nextItem.isDashedBar ?? false,
+            thickness: barWidth,
           ),
+          // Container(
+          //   color: index == totalLength - 1
+          //       ? Colors.transparent
+          //       : (index < activeIndex ? activeBarColor : inActiveBarColor),
+          //   width: barWidth,
+          //   height: gap,
+          // ),
         ],
       ),
-      const SizedBox(width: 8),
+      const SizedBox(width: 16),
       Expanded(
         child: Column(
           crossAxisAlignment:
               isInverted ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
             if (item.title != null) ...[
+              const SizedBox(height: 30),
               Text(
                 item.title!.text,
                 textAlign: TextAlign.start,
@@ -111,6 +133,19 @@ class VerticalStepperItem extends StatelessWidget {
                 item.subtitle!.text,
                 textAlign: TextAlign.start,
                 style: item.subtitle!.textStyle ??
+                    const TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w500,
+                    ),
+              ),
+            ],
+            if (item.secondSubtitle != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                item.secondSubtitle!.text,
+                textAlign: TextAlign.start,
+                style: item.secondSubtitle!.textStyle ??
                     const TextStyle(
                       fontSize: 12,
                       color: Colors.grey,
