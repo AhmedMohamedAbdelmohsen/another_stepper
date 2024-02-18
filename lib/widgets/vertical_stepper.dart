@@ -18,7 +18,8 @@ class VerticalStepperItem extends StatelessWidget {
       required this.inActiveBarColor,
       required this.barWidth,
       required this.iconHeight,
-      required this.iconWidth})
+      required this.iconWidth,
+      required this.makeMarginTop})
       : super(key: key);
 
   /// Stepper item of type [StepperData] to inflate stepper with data
@@ -56,6 +57,8 @@ class VerticalStepperItem extends StatelessWidget {
 
   /// Width of [StepperData.iconWidget]
   final double iconWidth;
+
+  final bool makeMarginTop;
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +118,8 @@ class VerticalStepperItem extends StatelessWidget {
               isInverted ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
             if (item.title != null) ...[
-              const SizedBox(height: 30),
+              Visibility(
+                  visible: makeMarginTop, child: const SizedBox(height: 30)),
               Text(
                 item.title!.text,
                 textAlign: TextAlign.start,

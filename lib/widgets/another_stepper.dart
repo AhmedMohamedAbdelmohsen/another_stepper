@@ -22,6 +22,7 @@ class AnotherStepper extends StatelessWidget {
     this.scrollPhysics,
     this.iconHeight = 20,
     this.iconWidth = 20,
+    this.makeMarginTop = true,
   })  : assert(verticalGap >= 0),
         super(key: key);
 
@@ -69,6 +70,8 @@ class AnotherStepper extends StatelessWidget {
   /// Scroll physics for listview if it is nested with some kind of Scrolling Widget
   final ScrollPhysics? scrollPhysics;
 
+  final bool? makeMarginTop;
+
   @override
   Widget build(BuildContext context) {
     var crossAxisAlign = stepperDirection == Axis.horizontal
@@ -107,20 +110,22 @@ class AnotherStepper extends StatelessWidget {
     } else {
       print('weeeeeeeeeee ${index + 1} - ${stepperList.length}');
       return VerticalStepperItem(
-          index: index,
-          item: stepperList[index],
-          nextItem: (index + 1) < stepperList.length
-              ? stepperList[index + 1]
-              : stepperList[index],
-          totalLength: stepperList.length,
-          gap: verticalGap,
-          activeIndex: activeIndex,
-          isInverted: inverted,
-          inActiveBarColor: inActiveBarColor,
-          activeBarColor: activeBarColor,
-          barWidth: barThickness,
-          iconHeight: iconHeight,
-          iconWidth: iconWidth);
+        index: index,
+        item: stepperList[index],
+        nextItem: (index + 1) < stepperList.length
+            ? stepperList[index + 1]
+            : stepperList[index],
+        totalLength: stepperList.length,
+        gap: verticalGap,
+        activeIndex: activeIndex,
+        isInverted: inverted,
+        inActiveBarColor: inActiveBarColor,
+        activeBarColor: activeBarColor,
+        barWidth: barThickness,
+        iconHeight: iconHeight,
+        iconWidth: iconWidth,
+        makeMarginTop: makeMarginTop ?? true,
+      );
     }
   }
 }

@@ -80,12 +80,12 @@ class _MyAppState extends State<MyApp> {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(30)),
             border: Border.all(
-              color: Color(0xFF374761), // You can specify the color you want for the border
+              color: Color(0xFF374761),
+              // You can specify the color you want for the border
               width: 2, // You can adjust the width of the border
             ),
           ),
-        )
-    ),
+        )),
   ];
 
   @override
