@@ -128,9 +128,6 @@ class VerticalStepperItem extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
               ),
-              Visibility(
-                  visible: !(item.makeMarginTop  ?? true),
-                  child: const SizedBox(height: 8)),
             ],
             if (item.subtitle != null) ...[
               const SizedBox(height: 8),
