@@ -9,21 +9,20 @@ class AnotherStepper extends StatelessWidget {
   ///
   /// The package can be used to build horizontal as well
   /// as vertical steppers just by providing [Axis] in the [stepperDirection] parameter.
-  const AnotherStepper({
-    Key? key,
-    required this.stepperList,
-    this.verticalGap = 40,
-    this.activeIndex = 0,
-    required this.stepperDirection,
-    this.inverted = false,
-    this.activeBarColor = Colors.blue,
-    this.inActiveBarColor = Colors.grey,
-    this.barThickness = 2,
-    this.scrollPhysics,
-    this.iconHeight = 20,
-    this.iconWidth = 20,
-    this.makeMarginTop = true,
-  })  : assert(verticalGap >= 0),
+  const AnotherStepper(
+      {Key? key,
+      required this.stepperList,
+      this.verticalGap = 40,
+      this.activeIndex = 0,
+      required this.stepperDirection,
+      this.inverted = false,
+      this.activeBarColor = Colors.blue,
+      this.inActiveBarColor = Colors.grey,
+      this.barThickness = 2,
+      this.scrollPhysics,
+      this.iconHeight = 20,
+      this.iconWidth = 20})
+      : assert(verticalGap >= 0),
         super(key: key);
 
   /// Stepper [List] of type [StepperData] to render the Stepper on the UI with data
@@ -69,8 +68,6 @@ class AnotherStepper extends StatelessWidget {
 
   /// Scroll physics for listview if it is nested with some kind of Scrolling Widget
   final ScrollPhysics? scrollPhysics;
-
-  final bool? makeMarginTop;
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +121,6 @@ class AnotherStepper extends StatelessWidget {
         barWidth: barThickness,
         iconHeight: iconHeight,
         iconWidth: iconWidth,
-        makeMarginTop: makeMarginTop ?? true,
       );
     }
   }
