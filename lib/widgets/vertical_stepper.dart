@@ -113,6 +113,7 @@ class VerticalStepperItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment:
               isInverted ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (item.title != null) ...[
               Visibility(
