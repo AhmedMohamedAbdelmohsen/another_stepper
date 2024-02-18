@@ -113,11 +113,11 @@ class VerticalStepperItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment:
               isInverted ? CrossAxisAlignment.end : CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (item.title != null) ...[
               Visibility(
-                  visible: item.makeMarginTop ?? true, child: const SizedBox(height: 30)),
+                  visible: item.makeMarginTop ?? true,
+                  child: const SizedBox(height: 30)),
               Text(
                 item.title!.text,
                 textAlign: TextAlign.start,
@@ -128,6 +128,9 @@ class VerticalStepperItem extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
               ),
+              Visibility(
+                  visible: !(item.makeMarginTop  ?? true),
+                  child: const SizedBox(height: 8)),
             ],
             if (item.subtitle != null) ...[
               const SizedBox(height: 8),
