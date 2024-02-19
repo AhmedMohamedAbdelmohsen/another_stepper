@@ -13,7 +13,10 @@ class StepperData {
   final bool? isDashedBar;
 
   final Widget? iconWidget;
+
   final bool? makeMarginTop;
+
+  final bool? isActive;
 
   /// Use the constructor of [StepperData] to pass the data needed.
   StepperData({
@@ -23,6 +26,7 @@ class StepperData {
     this.secondSubtitle,
     this.isDashedBar,
     this.makeMarginTop,
+    this.isActive,
   });
 }
 

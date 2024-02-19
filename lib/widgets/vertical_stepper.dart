@@ -71,7 +71,7 @@ class VerticalStepperItem extends StatelessWidget {
           VerticalLine(
             color: index == 0
                 ? Colors.transparent
-                : (index < activeIndex ? activeBarColor : inActiveBarColor),
+                : (/*index < activeIndex*/ (item.isActive ?? true) ? activeBarColor : inActiveBarColor),
             height: gap,
             isDashed: item.isDashedBar ?? false,
             thickness: barWidth,
@@ -94,7 +94,9 @@ class VerticalStepperItem extends StatelessWidget {
           VerticalLine(
             color: index == totalLength - 1
                 ? Colors.transparent
-                : (index < activeIndex ? activeBarColor : inActiveBarColor),
+                : (/*index < activeIndex*/ (item.isActive ?? true)
+                    ? activeBarColor
+                    : inActiveBarColor),
             height: gap,
             isDashed: nextItem.isDashedBar ?? false,
             thickness: barWidth,
